@@ -48,4 +48,9 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/${{ github.repository }}/pulls \
-            -d '{"head":"head", "base":"base", "title":"doc: Update docs/ACHIEVEMENTS.md", "body":"Automatic update of ACHIEVEMENTS.md from ${{ github.workflow }} workflow."}'
+            -d '{
+              "head":"${{ github.ref }}",
+              "base":"master",
+              "title":"doc: Update docs/ACHIEVEMENTS.md",
+              "body":"Automatic update of ACHIEVEMENTS.md from ${{ github.workflow }} workflow. **Do not forget to remove this branch after merge!**"
+            }'
