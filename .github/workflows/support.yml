@@ -4,7 +4,6 @@ name: support
 
 on:
   push:
-    branches: [ master ]
 
 jobs:
   generate-achievements-md:
@@ -33,7 +32,7 @@ jobs:
           git switch -c "$branch_name"
 
           git add docs/ACHIEVEMENTS.md
-          git commit -m "doc: Update docs/ACHIEVEMENTS.md" || {
+          git commit -m "doc: Update docs/ACHIEVEMENTS.md" --allow-empty || {
             echo "Nothing to commit"
             exit 0
           }
