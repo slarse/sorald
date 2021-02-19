@@ -4,11 +4,10 @@ name: support
 
 on:
   push:
-    branches: [ master ]
 
 jobs:
   generate-achievements-md:
-    if: ${{ github.repository == 'SpoonLabs/sorald' }} # don't accidentally run on forks :)
+    #if: ${{ github.repository == 'SpoonLabs/sorald' }} # don't accidentally run on forks :)
     runs-on: ubuntu-latest
 
     steps:
@@ -26,14 +25,14 @@ jobs:
         run: python -m sorald.achievements -p experimentation/prs.json -o docs/ACHIEVEMENTS.md
       - name: Create pull request
         run: |
-          git config --local user.email noreply@github.com
-          git config --local user.name GitHub
+          git config --local user.email github-actions[bot]@users.noreply.github.com
+          git config --local user.name github-actions[bot]
 
           branch_name=achievements-update-${{ github.sha }}
           git switch -c "$branch_name"
 
           git add docs/ACHIEVEMENTS.md
-          git commit -m "doc: Update docs/ACHIEVEMENTS.md" || {
+          git commit -m "doc: Update docs/ACHIEVEMENTS.md" --allow-empty || {
             echo "Nothing to commit"
             exit 0
           }
