@@ -7,7 +7,7 @@ on:
 
 jobs:
   generate-achievements-md:
-    if: ${{ github.repository == 'SpoonLabs/sorald' }} # don't accidentally run on forks :)
+    #if: ${{ github.repository == 'SpoonLabs/sorald' }} # don't accidentally run on forks :)
     runs-on: ubuntu-latest
 
     steps:
