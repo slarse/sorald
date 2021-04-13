@@ -60,8 +60,8 @@ class RepairCommand extends BaseCommand {
         @CommandLine.Option(
                 names = Constants.ARG_RULE_VIOLATION_SPECIFIERS,
                 description =
-                        "One or more rule violation specifiers. Specifiers can be gathered "
-                                + "with the '"
+                        "One or more rule space-separated violation specifiers. "
+                                + "Specifiers can be gathered with the '"
                                 + Constants.MINE_COMMAND_NAME
                                 + "' command using the "
                                 + Constants.ARG_STATS_OUTPUT_FILE
