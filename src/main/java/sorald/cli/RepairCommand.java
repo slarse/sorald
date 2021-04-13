@@ -66,8 +66,7 @@ class RepairCommand extends BaseCommand {
                                 + "' command using the "
                                 + Constants.ARG_STATS_OUTPUT_FILE
                                 + " option.",
-                required = true,
-                split = ",")
+                required = true)
         List<String> ruleViolationSpecifiers = List.of();
     }
 
